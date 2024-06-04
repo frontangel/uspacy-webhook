@@ -3,7 +3,8 @@ import FetchCommonData from '@uspacy/store/lib/components/FetchCommonData';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import App from './components/App';
+// import App from './components/App';
+import App from './components/Settings';
 import { login } from './helpers/preauth';
 
 (async () => {
