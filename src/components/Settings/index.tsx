@@ -16,7 +16,7 @@ const Settings: React.FC = () => {
 
 	useEffect(() => {
 		(async () => {
-			api.get<ISettings>('/settings')
+			api.get<ISettings>('/uspacy/settings')
 				.then((response) => setSettings(response.data))
 				.catch((err) => {
 					// eslint-disable-next-line no-console
@@ -29,7 +29,7 @@ const Settings: React.FC = () => {
 		e.preventDefault();
 
 		setLoading(true);
-		api.post<ISettings>('/settings', { apiKey: settings.apiKey })
+		api.post<ISettings>('/uspacy/settings', { apiKey: settings.apiKey })
 			.then((response) => {
 				setSettings(response.data);
 			})
