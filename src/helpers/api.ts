@@ -3,7 +3,7 @@ import axios from 'axios';
 import { getTokenByKey } from './db';
 
 export const api = axios.create({
-	baseURL: process.env.API_URL,
+	baseURL: process.env.AUTH_LEADBOX_URL,
 });
 
 api.interceptors.request.use(
