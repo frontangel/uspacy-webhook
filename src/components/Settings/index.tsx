@@ -1,9 +1,10 @@
 import { Box, Button, CircularProgress, Input, Typography } from '@mui/material';
-import { useAppSelector } from '@uspacy/store';
+// import { useAppSelector } from '@uspacy/store';
 import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { api } from '../../helpers/api';
+import { getTokenByKey } from '../../helpers/db';
 import { ISettings } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
@@ -15,11 +16,17 @@ const Settings: React.FC = () => {
 	const [errorMessage, setError] = useState('');
 	const { t } = useTranslation('settings');
 
-	const profile = useAppSelector((state) => state);
-	const getAppToken = () => {
+	// const profile = useAppSelector((state) => state);
+	const getAppToken = async () => {
 		// eslint-disable-next-line no-console
-		console.log(profile);
-		fetch('/apps/v1/apps?code[]=do_it_well_lead_box')
+		// console.log(profile);
+
+		const token = await getTokenByKey('token');
+		fetch('/apps/v1/apps?code[]=do_it_well_lead_box', {
+			headers: {
+				Authorization: `Bearer ${token}`,
+			},
+		})
 			.then((result) => result.json())
 			.then((response) => {
 				// eslint-disable-next-line no-console
