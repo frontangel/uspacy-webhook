@@ -3,7 +3,7 @@ import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { getTokenByKey } from '../../helpers/db';
-import { ISettings } from '../../models/settings';
+import { ISettings, ISettingsError } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
 
@@ -56,23 +56,14 @@ const Settings: React.FC = () => {
 	const handleSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 		setLoading(true);
-		try {
-			const appToken = await getAppToken();
-			const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken, {
-				method: 'POST',
-				body: JSON.stringify({ apiKey: settings.apiKey?.trim() }),
-			});
-			// eslint-disable-next-line no-console
-			console.log('setSettings', response);
-			setSettings(response as ISettings);
-		} catch (err) {
-			// eslint-disable-next-line no-console
-			console.log(err, (err as { message: string }).message, (err as { data: Record<string, string> }).data);
-			// setError(err.response.data.message || err.message);
-		} finally {
-			setLoading(false);
-			setChange(false);
-		}
+		const appToken = await getAppToken();
+		const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken, {
+			method: 'POST',
+			body: JSON.stringify({ apiKey: settings.apiKey?.trim() }),
+		});
+		(response as ISettingsError).error ? setError((response as ISettingsError).message) : setSettings(response as ISettings);
+		setLoading(false);
+		setChange(false);
 	};
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {

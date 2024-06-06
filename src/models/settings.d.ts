@@ -3,3 +3,9 @@ export interface ISettings {
 	isConnected: boolean;
 	installed: boolean;
 }
+
+export interface ISettingsError {
+	message: string;
+	error: string;
+	statusCode: number;
+}
