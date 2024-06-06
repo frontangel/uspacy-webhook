@@ -18,6 +18,7 @@ const Settings: React.FC = () => {
 		return new Promise((resolve, reject) => {
 			const headers = {};
 			headers['Accept-Language'] = 'uk';
+			headers['Content-Type'] = 'application/json';
 			if (token) {
 				headers['Authorization'] = `Bearer ${token}`;
 			}
