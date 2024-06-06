@@ -25,6 +25,7 @@ const Settings: React.FC = () => {
 		fetch('/apps/v1/apps?code[]=do_it_well_lead_box', {
 			headers: {
 				Authorization: `Bearer ${token}`,
+				'Accept-Language': 'uk',
 			},
 		})
 			.then((result) => result.json())
