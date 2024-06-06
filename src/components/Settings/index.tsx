@@ -39,7 +39,7 @@ const Settings: React.FC = () => {
 		(async () => {
 			const appToken = await getAppToken();
 			// eslint-disable-next-line no-console
-			console.log({ appToken, baseUrl: process.env.AUTH_LEADBOX_URL });
+			console.log({ appToken, baseUrl: process.env });
 			// api.get<ISettings>('/uspacy/settings')
 			// 	.then((response) => setSettings(response.data))
 			// 	.catch((err) => {
