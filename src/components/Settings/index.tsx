@@ -67,7 +67,7 @@ const Settings: React.FC = () => {
 			setSettings(response as ISettings);
 		} catch (err) {
 			// eslint-disable-next-line no-console
-			console.log(err);
+			console.log(err, (err as { message: string }).message, (err as { data: Record<string, string> }).data);
 			// setError(err.response.data.message || err.message);
 		} finally {
 			setLoading(false);
