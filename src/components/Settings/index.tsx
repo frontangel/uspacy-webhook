@@ -9,7 +9,7 @@ import { ISettings } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
 
-const baseUrl = process.env.AUTH_LEADBOX_URL;
+const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const Settings: React.FC = () => {
 	const [settings, setSettings] = useState<ISettings>({ installed: false, apiKey: '', isConnected: false });
