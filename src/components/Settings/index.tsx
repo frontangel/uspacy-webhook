@@ -28,7 +28,7 @@ const Settings: React.FC = () => {
 			})
 				.then((result) => result.json())
 				.then(resolve)
-				.catch((err) => reject(err.data || err.message));
+				.catch((err) => reject(err.data?.message || err.message));
 		});
 	};
 
@@ -62,6 +62,8 @@ const Settings: React.FC = () => {
 				method: 'POST',
 				body: JSON.stringify({ apiKey: settings.apiKey?.trim() }),
 			});
+			// eslint-disable-next-line no-console
+			console.log('setSettings', response);
 			setSettings(response as ISettings);
 		} catch (err) {
 			// eslint-disable-next-line no-console
