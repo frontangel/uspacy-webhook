@@ -1,15 +1,11 @@
 import { Box, Button, CircularProgress, Input, Typography } from '@mui/material';
-// import { useAppSelector } from '@uspacy/store';
 import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { api } from '../../helpers/api';
 import { getTokenByKey } from '../../helpers/db';
 import { ISettings } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
-
-const baseUrl = process.env.REACT_APP_BASE_URL;
 
 const Settings: React.FC = () => {
 	const [settings, setSettings] = useState<ISettings>({ installed: false, apiKey: '', isConnected: false });
@@ -18,7 +14,7 @@ const Settings: React.FC = () => {
 	const [errorMessage, setError] = useState('');
 	const { t } = useTranslation('settings');
 
-	const getInstance = (url: string, token: string, options?: Record<string, unknown>) => {
+	const fetchInstance = (url: string, token: string, options?: Record<string, unknown>) => {
 		return new Promise((resolve, reject) => {
 			const headers = {};
 			headers['Accept-Language'] = 'uk';
@@ -37,42 +33,43 @@ const Settings: React.FC = () => {
 
 	const getAppToken = async (): Promise<string> => {
 		const token = await getTokenByKey('token');
-		const response = await getInstance('/apps/v1/apps?code[]=do_it_well_lead_box', token);
+		const response = await fetchInstance('/apps/v1/apps?code[]=do_it_well_lead_box', token);
+		await debounceFn();
 		return (response as { data: Record<string, string>[] })?.data[0]?.integration_token || '';
+	};
+
+	const debounceFn = (delay = 1000) => {
+		return new Promise((resolve) => setTimeout(resolve, delay));
 	};
 
 	useEffect(() => {
 		(async () => {
+			setLoading(true);
 			const appToken = await getAppToken();
-			const result = await getInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken);
-			// eslint-disable-next-line no-console
-			console.log({ appToken, base: process.env.AUTH_LEADBOX_URL, result, baseUrl });
-			// api.get<ISettings>('/uspacy/settings')
-			// 	.then((response) => setSettings(response.data))
-			// 	.catch((err) => {
-			// 		// eslint-disable-next-line no-console
-			// 		console.log(err);
-			// 	});
+			const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken);
+			setSettings(response as ISettings);
+			setLoading(false);
 		})();
 	}, []);
 
-	const handleSubmit = (e: SyntheticEvent) => {
+	const handleSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
-
 		setLoading(true);
-		api.post<ISettings>('/uspacy/settings', { apiKey: settings.apiKey })
-			.then((response) => {
-				setSettings(response.data);
-			})
-			.catch((err) => {
-				// eslint-disable-next-line no-console
-				console.log(err);
-				setError(err.response.data.message || err.message);
-			})
-			.finally(() => {
-				setLoading(false);
-				setChange(false);
+		try {
+			const appToken = await getAppToken();
+			const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken, {
+				method: 'POST',
+				body: JSON.stringify({ apiKey: settings.apiKey }),
 			});
+			setSettings(response as ISettings);
+		} catch (err) {
+			// eslint-disable-next-line no-console
+			console.log(err);
+			// setError(err.response.data.message || err.message);
+		} finally {
+			setLoading(false);
+			setChange(false);
+		}
 	};
 
 	const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
