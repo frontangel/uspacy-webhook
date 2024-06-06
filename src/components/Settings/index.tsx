@@ -9,6 +9,8 @@ import { ISettings } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
 
+const baseUrl = process.env.AUTH_LEADBOX_URL;
+
 const Settings: React.FC = () => {
 	const [settings, setSettings] = useState<ISettings>({ installed: false, apiKey: '', isConnected: false });
 	const [loading, setLoading] = useState(false);
@@ -16,30 +18,35 @@ const Settings: React.FC = () => {
 	const [errorMessage, setError] = useState('');
 	const { t } = useTranslation('settings');
 
-	const getAppToken = async () => {
-		const token = await getTokenByKey('token');
-		return new Promise((resolve) => {
-			fetch('/apps/v1/apps?code[]=do_it_well_lead_box', {
-				headers: {
-					Authorization: `Bearer ${token}`,
-					'Accept-Language': 'uk',
-				},
+	const getInstance = (url: string, token: string, options?: Record<string, unknown>) => {
+		return new Promise((resolve, reject) => {
+			const headers = {};
+			headers['Accept-Language'] = 'uk';
+			if (token) {
+				headers['Authorization'] = `Bearer ${token}`;
+			}
+			fetch(url, {
+				headers,
+				...options,
 			})
 				.then((result) => result.json())
-				.then((response) => {
-					resolve(response.data[0].integration_token);
-				})
-				.catch((e) => {
-					throw new Error(e);
-				});
+				.then(resolve)
+				.catch(reject);
 		});
+	};
+
+	const getAppToken = async (): Promise<string> => {
+		const token = await getTokenByKey('token');
+		const response = await getInstance('/apps/v1/apps?code[]=do_it_well_lead_box', token);
+		return (response as { data: Record<string, string>[] })?.data[0].integration_token || '';
 	};
 
 	useEffect(() => {
 		(async () => {
 			const appToken = await getAppToken();
+			const result = await getInstance('https://auth.leadbox.com.ua/uspacy/setting', appToken);
 			// eslint-disable-next-line no-console
-			console.log({ appToken, baseUrl: process.env });
+			console.log({ appToken, base: process.env.AUTH_LEADBOX_URL, result, baseUrl });
 			// api.get<ISettings>('/uspacy/settings')
 			// 	.then((response) => setSettings(response.data))
 			// 	.catch((err) => {
