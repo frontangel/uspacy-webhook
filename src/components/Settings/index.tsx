@@ -28,7 +28,7 @@ const Settings: React.FC = () => {
 			})
 				.then((result) => result.json())
 				.then(resolve)
-				.catch(reject);
+				.catch((err) => reject(err.data || err.message));
 		});
 	};
 
@@ -48,8 +48,6 @@ const Settings: React.FC = () => {
 			setLoading(true);
 			const appToken = await getAppToken();
 			const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken);
-			// eslint-disable-next-line no-console
-			console.log(response);
 			setSettings(response as ISettings);
 			setLoading(false);
 		})();
