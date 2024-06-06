@@ -16,38 +16,36 @@ const Settings: React.FC = () => {
 	const [errorMessage, setError] = useState('');
 	const { t } = useTranslation('settings');
 
-	// const profile = useAppSelector((state) => state);
 	const getAppToken = async () => {
-		// eslint-disable-next-line no-console
-		// console.log(profile);
-
 		const token = await getTokenByKey('token');
-		fetch('/apps/v1/apps?code[]=do_it_well_lead_box', {
-			headers: {
-				Authorization: `Bearer ${token}`,
-				'Accept-Language': 'uk',
-			},
-		})
-			.then((result) => result.json())
-			.then((response) => {
-				// eslint-disable-next-line no-console
-				console.log({ response });
+		return new Promise((resolve) => {
+			fetch('/apps/v1/apps?code[]=do_it_well_lead_box', {
+				headers: {
+					Authorization: `Bearer ${token}`,
+					'Accept-Language': 'uk',
+				},
 			})
-			.catch((e) => {
-				throw new Error(e);
-			});
+				.then((result) => result.json())
+				.then((response) => {
+					resolve(response.data[0].integration_token);
+				})
+				.catch((e) => {
+					throw new Error(e);
+				});
+		});
 	};
 
 	useEffect(() => {
 		(async () => {
-			getAppToken();
-
-			api.get<ISettings>('/uspacy/settings')
-				.then((response) => setSettings(response.data))
-				.catch((err) => {
-					// eslint-disable-next-line no-console
-					console.log(err);
-				});
+			const appToken = await getAppToken();
+			// eslint-disable-next-line no-console
+			console.log({ appToken, baseUrl: process.env.AUTH_LEADBOX_URL });
+			// api.get<ISettings>('/uspacy/settings')
+			// 	.then((response) => setSettings(response.data))
+			// 	.catch((err) => {
+			// 		// eslint-disable-next-line no-console
+			// 		console.log(err);
+			// 	});
 		})();
 	}, []);
 
