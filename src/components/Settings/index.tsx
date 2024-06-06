@@ -62,7 +62,7 @@ const Settings: React.FC = () => {
 			const appToken = await getAppToken();
 			const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken, {
 				method: 'POST',
-				body: JSON.stringify({ apiKey: settings.apiKey }),
+				body: JSON.stringify({ apiKey: settings.apiKey?.trim() }),
 			});
 			setSettings(response as ISettings);
 		} catch (err) {
