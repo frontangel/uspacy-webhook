@@ -3,7 +3,7 @@ import axios from 'axios';
 import { getTokenByKey } from './db';
 
 export const api = axios.create({
-	baseURL: 'https://auth.leadbox.com.ua',
+	baseURL: 'http://localhost:6921', // 'https://auth.leadbox.com.ua',
 });
 
 api.interceptors.request.use(

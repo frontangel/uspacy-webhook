@@ -1,5 +1,4 @@
 import { Box, Tab, Tabs } from '@mui/material';
-// import { useAppSelector } from '@uspacy/store';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -17,10 +16,9 @@ function a11yProps(index: number) {
 
 const App: React.FC = () => {
 	const { t } = useTranslation();
-	// const profile = useAppSelector((state) => state.profile.data);
 	const [value, setValue] = useState(0);
-
 	const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+		// @ts-ignore
 		setValue(newValue);
 	};
 	return (

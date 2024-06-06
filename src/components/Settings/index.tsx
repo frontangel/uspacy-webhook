@@ -1,4 +1,5 @@
 import { Box, Button, CircularProgress, Input, Typography } from '@mui/material';
+import { useAppSelector } from '@uspacy/store';
 import React, { ChangeEvent, SyntheticEvent, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -14,8 +15,25 @@ const Settings: React.FC = () => {
 	const [errorMessage, setError] = useState('');
 	const { t } = useTranslation('settings');
 
+	const profile = useAppSelector((state) => state);
+	const getAppToken = () => {
+		// eslint-disable-next-line no-console
+		console.log(profile);
+		fetch('/apps/v1/apps?code[]=do_it_well_lead_box')
+			.then((result) => result.json())
+			.then((response) => {
+				// eslint-disable-next-line no-console
+				console.log({ response });
+			})
+			.catch((e) => {
+				throw new Error(e);
+			});
+	};
+
 	useEffect(() => {
 		(async () => {
+			getAppToken();
+
 			api.get<ISettings>('/uspacy/settings')
 				.then((response) => setSettings(response.data))
 				.catch((err) => {
