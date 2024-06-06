@@ -38,13 +38,13 @@ const Settings: React.FC = () => {
 	const getAppToken = async (): Promise<string> => {
 		const token = await getTokenByKey('token');
 		const response = await getInstance('/apps/v1/apps?code[]=do_it_well_lead_box', token);
-		return (response as { data: Record<string, string>[] })?.data[0].integration_token || '';
+		return (response as { data: Record<string, string>[] })?.data[0]?.integration_token || '';
 	};
 
 	useEffect(() => {
 		(async () => {
 			const appToken = await getAppToken();
-			const result = await getInstance('https://auth.leadbox.com.ua/uspacy/setting', appToken);
+			const result = await getInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken);
 			// eslint-disable-next-line no-console
 			console.log({ appToken, base: process.env.AUTH_LEADBOX_URL, result, baseUrl });
 			// api.get<ISettings>('/uspacy/settings')
