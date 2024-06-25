@@ -7,6 +7,8 @@ import { ISettings, ISettingsError } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
 
+const APP_URL = 'https://auth.leadbox.com.ua';
+
 const Settings: React.FC = () => {
 	const [settings, setSettings] = useState<ISettings>({ installed: false, apiKey: '', isConnected: false });
 	const [loading, setLoading] = useState(false);
@@ -45,7 +47,7 @@ const Settings: React.FC = () => {
 		(async () => {
 			setLoading(true);
 			const appToken = await getAppToken();
-			const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken);
+			const response = await fetchInstance(`${APP_URL}/portals/install`, appToken);
 			setSettings(response as ISettings);
 			setLoading(false);
 		})();
@@ -55,7 +57,7 @@ const Settings: React.FC = () => {
 		e.preventDefault();
 		setLoading(true);
 		const appToken = await getAppToken();
-		const response = await fetchInstance('https://auth.leadbox.com.ua/uspacy/settings', appToken, {
+		const response = await fetchInstance(`${APP_URL}/portals/install`, appToken, {
 			method: 'POST',
 			body: JSON.stringify({ apiKey: settings.apiKey?.trim() }),
 		});
