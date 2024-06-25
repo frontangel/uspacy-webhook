@@ -7,7 +7,7 @@ import { ISettings, ISettingsError } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
 
-const APP_URL = 'https://auth.leadbox.com.ua';
+const APP_URL = 'https://auth.dev.leadbox.com.ua';
 
 const Settings: React.FC = () => {
 	const [settings, setSettings] = useState<ISettings>({ installed: false, apiKey: '', isConnected: false });
