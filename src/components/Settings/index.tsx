@@ -47,7 +47,9 @@ const Settings: React.FC = () => {
 		(async () => {
 			setLoading(true);
 			const appToken = await getAppToken();
-			const response = await fetchInstance(`${APP_URL}/portals/install`, appToken);
+			// eslint-disable-next-line no-console
+			console.warn('AUTH_LEADBOX_URL', process.env.AUTH_LEADBOX_URL);
+			const response = await fetchInstance(`${APP_URL}/portals/settings`, appToken);
 			setSettings(response as ISettings);
 			setLoading(false);
 		})();
@@ -56,8 +58,10 @@ const Settings: React.FC = () => {
 	const handleSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 		setLoading(true);
+		// eslint-disable-next-line no-console
+		console.warn('AUTH_LEADBOX_URL2', process.env.AUTH_LEADBOX_URL);
 		const appToken = await getAppToken();
-		const response = await fetchInstance(`${APP_URL}/portals/install`, appToken, {
+		const response = await fetchInstance(`${APP_URL}/portals/settings`, appToken, {
 			method: 'POST',
 			body: JSON.stringify({ apiKey: settings.apiKey?.trim() }),
 		});
