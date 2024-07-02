@@ -7,7 +7,7 @@ import { ISettings, ISettingsError } from '../../models/settings';
 import Providers from '../../Providers';
 import { IProps } from './types';
 
-const APP_URL = 'https://auth.dev.leadbox.com.ua';
+const APP_URL = process.env.AUTH_LEADBOX_URL;
 
 const Settings: React.FC = () => {
 	const [settings, setSettings] = useState<ISettings>({ installed: false, apiKey: '', isConnected: false });
@@ -47,8 +47,6 @@ const Settings: React.FC = () => {
 		(async () => {
 			setLoading(true);
 			const appToken = await getAppToken();
-			// eslint-disable-next-line no-console
-			console.warn('AUTH_LEADBOX_URL', process.env.AUTH_LEADBOX_URL);
 			const response = await fetchInstance(`${APP_URL}/portals/settings`, appToken);
 			setSettings(response as ISettings);
 			setLoading(false);
@@ -58,8 +56,6 @@ const Settings: React.FC = () => {
 	const handleSubmit = async (e: SyntheticEvent) => {
 		e.preventDefault();
 		setLoading(true);
-		// eslint-disable-next-line no-console
-		console.warn('AUTH_LEADBOX_URL2', process.env.AUTH_LEADBOX_URL);
 		const appToken = await getAppToken();
 		const response = await fetchInstance(`${APP_URL}/portals/settings`, appToken, {
 			method: 'POST',
