@@ -21,20 +21,13 @@ const App: React.FC = () => {
 		// @ts-ignore
 		setValue(newValue);
 	};
+	const tabSx = { width: '100%', maxWidth: '50%', textTransform: 'none', letterSpacing: '1px' };
 	return (
 		<Box sx={{ width: '100%' }}>
 			<Box sx={{ borderBottom: 1, borderColor: 'divider', width: '100%' }}>
 				<Tabs sx={{ width: '100%' }} value={value} onChange={handleChange} aria-label="basic tabs example">
-					<Tab
-						sx={{ width: '100%', maxWidth: '50%', textTransform: 'none', letterSpacing: '1px' }}
-						label={t('aboutApp')}
-						{...a11yProps(0)}
-					/>
-					<Tab
-						sx={{ width: '100%', maxWidth: '50%', textTransform: 'none', letterSpacing: '1px' }}
-						label={t('settingsApp')}
-						{...a11yProps(1)}
-					/>
+					<Tab sx={tabSx} label={t('aboutApp')} {...a11yProps(0)} />
+					<Tab sx={tabSx} label={t('settingsApp')} {...a11yProps(1)} />
 				</Tabs>
 			</Box>
 			<DescriptionTab value={value} />
