@@ -11,7 +11,7 @@ function IntegrationInstructions() {
 		justifyContent: 'center',
 		marginBottom: '2rem',
 	};
-	const boldColor = { fontWeight: 500, color: 'firebrick' };
+	const boldColor = { fontWeight: 500, color: 'rosybrown' };
 	const btnStyle = {
 		color: boldColor.color,
 		border: `1px solid ${boldColor.color}`,
