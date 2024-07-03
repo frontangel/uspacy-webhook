@@ -45,7 +45,7 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ оберіть <span style={{ color: 'rebeccapurple' }}>Додати інтеграцію</span>
+									➡️ оберіть <span style={{ color: 'rebeccapurple', fontWeight: 500 }}>Додати інтеграцію</span>
 								</>
 							}
 						/>
