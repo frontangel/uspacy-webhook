@@ -11,7 +11,7 @@ function IntegrationInstructions() {
 		justifyContent: 'center',
 		marginBottom: '2rem',
 	};
-	const boldColor = { fontWeight: 500, color: 'rosybrown' };
+	const boldColor = { fontWeight: 500, color: '#9c27b0' };
 	const btnStyle = {
 		color: boldColor.color,
 		border: `1px solid ${boldColor.color}`,
@@ -22,7 +22,7 @@ function IntegrationInstructions() {
 		letterSpacing: '1px',
 		fontSize: '14px',
 	};
-	const linkStyles = { color: 'dodgerblue' };
+	const linkStyles = { color: '#03a9f4' };
 	return (
 		<Box>
 			<YouTube videoId={videoId} style={playerStyles} />
