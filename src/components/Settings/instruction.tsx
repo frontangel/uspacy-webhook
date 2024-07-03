@@ -11,9 +11,10 @@ function IntegrationInstructions() {
 		justifyContent: 'center',
 		marginBottom: '2rem',
 	};
+	const boldColor = { fontWeight: 500, color: 'firebrick' };
 	const btnStyle = {
-		color: 'rebeccapurple',
-		border: '1px solid rebeccapurple',
+		color: boldColor.color,
+		border: `1px solid ${boldColor.color}`,
 		display: 'inline-flex',
 		padding: '0.25rem 1rem',
 		borderRadius: '3px',
@@ -45,7 +46,7 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ оберіть <span style={{ color: 'rebeccapurple', fontWeight: 500 }}>Додати інтеграцію</span>
+									➡️ оберіть <span style={boldColor}>Додати інтеграцію</span>
 								</>
 							}
 						/>
@@ -54,7 +55,7 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ оберіть розділ <span style={{ color: 'rebeccapurple' }}>CRM</span>
+									➡️ оберіть розділ <span style={boldColor}>CRM</span>
 								</>
 							}
 						/>
@@ -63,7 +64,7 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ натисніть <span style={{ color: 'rebeccapurple' }}>Uspacy</span>
+									➡️ натисніть <span style={boldColor}>Uspacy</span>
 								</>
 							}
 						/>
@@ -75,7 +76,7 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ скопіюте отриманий <span style={{ color: 'rebeccapurple' }}>Api ключ</span>
+									➡️ скопіюте отриманий <span style={boldColor}>Api ключ</span>
 								</>
 							}
 						/>
@@ -102,7 +103,7 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ зайдіть на сторінку інтеграцій в <span style={{ color: 'rebeccapurple' }}>LeadBox</span>
+									➡️ зайдіть на сторінку інтеграцій в <span style={boldColor}>LeadBox</span>
 								</>
 							}
 						/>
@@ -111,8 +112,8 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ натисніть <span style={{ color: 'rebeccapurple' }}>Додати інтеграцію</span> та оберіть з переліку{' '}
-									<span style={{ color: 'rebeccapurple' }}>Web сайт → Webhook</span>
+									➡️ натисніть <span style={boldColor}>Додати інтеграцію</span> та оберіть з переліку{' '}
+									<span style={boldColor}>Web сайт → Webhook</span>
 								</>
 							}
 						/>
