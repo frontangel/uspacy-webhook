@@ -16,8 +16,8 @@ const Settings: React.FC = () => {
 	const [errorMessage, setError] = useState('');
 	const { t } = useTranslation('settings');
 
-	const fetchInstance = (url: string, token: string, options?: Record<string, unknown>) => {
-		return new Promise((resolve, reject) => {
+	const fetchInstance = async (url: string, token: string, options?: Record<string, unknown>) => {
+		return new Promise((resolve) => {
 			const headers = {};
 			headers['Accept-Language'] = 'uk';
 			headers['Content-Type'] = 'application/json';
@@ -30,7 +30,13 @@ const Settings: React.FC = () => {
 			})
 				.then((result) => result.json())
 				.then(resolve)
-				.catch((err) => reject(err.data?.message || err.message));
+				.catch(() => {
+					resolve({
+						apiKey: '',
+						isConnected: false,
+						installed: false,
+					});
+				});
 		});
 	};
 

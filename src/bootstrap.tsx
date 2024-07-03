@@ -3,7 +3,7 @@ import FetchCommonData from '@uspacy/store/lib/components/FetchCommonData';
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Settings from './components/Settings';
+// import Settings from './components/Settings';
 // import App from './components/App';
 import { login } from './helpers/preauth';
 
@@ -14,7 +14,6 @@ import { login } from './helpers/preauth';
 	root.render(
 		<StoreProvider>
 			<FetchCommonData />
-			<Settings />
 		</StoreProvider>,
 	);
 })();
