@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkcontainer=self.webpackChunkcontainer||[]).push([[559],{3559:e=>{e.exports=JSON.parse('{"title":"Налаштування","save":"Зберегти","connected":"Підключено","notConnected":"Не підключено","connect":"Підключити","integrationApiKey":"c8690d6c948e41ec6bcbae7d6249efe7","INVALID_API_KEY":"Не вірний api ключ","LABEL_API_KEY":"Api ключ "}')}}]);
