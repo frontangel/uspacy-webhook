@@ -154,8 +154,8 @@ const Settings: React.FC = () => {
 							'&:hover': { backgroundColor: '#58ca00' },
 							'&:disabled': {
 								backgroundColor: settings.apiKey?.trim() && isChanged ? '#d2f7b6' : 'transparent',
-								color: '#58ca00',
-								borderColor: '#58ca00',
+								color: loading ? '#a6a6a8' : '#58ca00',
+								borderColor: loading ? '#a6a6a8' : '#58ca00',
 							},
 						}}
 					>
@@ -164,7 +164,7 @@ const Settings: React.FC = () => {
 							<CircularProgress
 								size={22}
 								sx={{
-									color: '#58ca00',
+									color: '#a6a6a8',
 									position: 'absolute',
 									zIndex: 1,
 								}}
