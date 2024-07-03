@@ -18,7 +18,7 @@ function IntegrationInstructions() {
 				<Typography gutterBottom variant="h5" component="div">
 					КРОК 1 - підключення Uspacy до акаунту LeadBox
 				</Typography>
-				<Typography variant="body1" component="div">
+				<Typography gutterBottom component="div">
 					Зареєструйте акаунт в сервісі{' '}
 					<Link href="https://my.leadbox.com.ua" target="_blank">
 						my.leadbox.com.ua
@@ -29,30 +29,25 @@ function IntegrationInstructions() {
 					</Link>
 					.
 				</Typography>
+				<Typography component="div">Оберіть інтеграцію з Uspacy (якщо створювали її раніше), або ж створіть нову. Для цього:</Typography>
 				<List>
-					<ListItem>
-						<ListItemText primary="Оберіть інтеграцію з Uspacy (якщо створювали її раніше), або ж створіть нову. Для цього:" />
-					</ListItem>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="→ оберіть 'Додати інтеграцію'" />
 					</ListItem>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="→ оберіть розділ CRM" />
 					</ListItem>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="→ натисніть на Uspacy" />
 					</ListItem>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="→ введіть потрібну вам назву" />
 					</ListItem>
-					<ListItem>
-						<ListItemText
-							primary="Заповніть поле Api key, яке ви бачите вище даними із Secret Key,
-							який ви отримаєте на сторінці інтeграції Uspacy в сервісі LeadBox"
-						/>
+					<ListItem sx={{ paddingY: 0 }}>
+						<ListItemText primary="→ скопіюте отриманий Api ключ" />
 					</ListItem>
-					<ListItem>
-						<ListItemText primary="Натисніть [Підключити]" />
+					<ListItem sx={{ paddingY: 0 }}>
+						<ListItemText primary="→ вставте ключ в форму вище і натисніть [Підключити]" />
 					</ListItem>
 				</List>
 			</Box>
@@ -62,16 +57,16 @@ function IntegrationInstructions() {
 					КРОК 2 - підключення інтеграції Webhook
 				</Typography>
 				<List>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="Зайдіть на сторінку інтеграції в LeadBox" />
 					</ListItem>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="Натисніть 'Додати інтеграцію' та оберіть з переліку Web сайт → Webhook" />
 					</ListItem>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="Дайте назву інтеграції" />
 					</ListItem>
-					<ListItem>
+					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText
 							primary={
 								<>
