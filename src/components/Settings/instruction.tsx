@@ -32,22 +32,22 @@ function IntegrationInstructions() {
 				<Typography component="div">Оберіть інтеграцію з Uspacy (якщо створювали її раніше), або ж створіть нову. Для цього:</Typography>
 				<List>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="→ оберіть 'Додати інтеграцію'" />
+						<ListItemText primary="➡️ оберіть 'Додати інтеграцію'" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="→ оберіть розділ CRM" />
+						<ListItemText primary="➡️ оберіть розділ CRM" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="→ натисніть на Uspacy" />
+						<ListItemText primary="➡️ натисніть на Uspacy" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="→ введіть потрібну вам назву" />
+						<ListItemText primary="➡️ введіть потрібну вам назву" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="→ скопіюте отриманий Api ключ" />
+						<ListItemText primary="➡️ скопіюте отриманий Api ключ" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="→ вставте ключ в форму вище і натисніть [Підключити]" />
+						<ListItemText primary="➡️ вставте ключ в форму вище і натисніть [Підключити]" />
 					</ListItem>
 				</List>
 			</Box>
@@ -58,19 +58,19 @@ function IntegrationInstructions() {
 				</Typography>
 				<List>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="Зайдіть на сторінку інтеграції в LeadBox" />
+						<ListItemText primary="➡️ Зайдіть на сторінку інтеграції в LeadBox" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="Натисніть 'Додати інтеграцію' та оберіть з переліку Web сайт → Webhook" />
+						<ListItemText primary="➡️ Натисніть 'Додати інтеграцію' та оберіть з переліку Web сайт → Webhook" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="Дайте назву інтеграції" />
+						<ListItemText primary="➡️ Дайте назву інтеграції" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText
 							primary={
 								<>
-									Заповніть налаштування згідно з інструкцією:{' '}
+									➡️ Заповніть налаштування згідно з цією{' '}
 									<Link href={helpUrl} target="_blank">
 										інструкцією
 									</Link>
