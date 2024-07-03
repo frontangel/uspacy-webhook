@@ -69,7 +69,7 @@ function IntegrationInstructions() {
 							<ListItemText
 								primary={
 									<>
-										Заповніть налаштування згідно з інструкцією:
+										Заповніть налаштування згідно з інструкцією:{' '}
 										<Link href={helpUrl} target="_blank">
 											інструкцією
 										</Link>
@@ -85,12 +85,11 @@ function IntegrationInstructions() {
 			<Card variant="outlined" sx={{ marginTop: 4 }}>
 				<CardContent>
 					<Typography variant="body1" component="div">
-						Якщо у вас виникнуть питання - пишіть нам в чат тех.підтримки у вашому акаунті
+						Якщо у вас виникнуть питання - пишіть нам в чат тех.підтримки у вашому акаунті{' '}
 						<Link href="https://my.leadbox.com.ua" target="_blank">
 							my.leadbox.com.ua
-						</Link>
-						або на пошту
-						<Link href="mailto:office@leadbox.com.ua">office@leadbox.com.ua</Link> або дзвоніть +380933164008.
+						</Link>{' '}
+						або на пошту <Link href="mailto:office@leadbox.com.ua">office@leadbox.com.ua</Link> або дзвоніть +380933164008.
 					</Typography>
 				</CardContent>
 			</Card>
