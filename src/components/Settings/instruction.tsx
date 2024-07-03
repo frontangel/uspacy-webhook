@@ -11,6 +11,16 @@ function IntegrationInstructions() {
 		justifyContent: 'center',
 		marginBottom: '1rem',
 	};
+	const btnStyle = {
+		color: 'purple',
+		border: '1px solid purple',
+		display: 'inline-flex',
+		padding: '0.25rem 1rem',
+		borderRadius: '3px',
+		marginLeft: '0.5rem',
+		letterSpacing: '1px',
+		fontSize: '14px',
+	};
 	return (
 		<Box>
 			<YouTube videoId={videoId} style={playerStyles} />
@@ -35,19 +45,44 @@ function IntegrationInstructions() {
 						<ListItemText primary="➡️ оберіть 'Додати інтеграцію'" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="➡️ оберіть розділ CRM" />
+						<ListItemText
+							primary={
+								<>
+									➡️ оберіть розділ <span style={{ color: 'purple' }}>CRM</span>
+								</>
+							}
+						/>
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="➡️ натисніть на Uspacy" />
+						<ListItemText
+							primary={
+								<>
+									➡️ натисніть <span style={{ color: 'purple' }}>Uspacy</span>
+								</>
+							}
+						/>
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="➡️ введіть потрібну вам назву" />
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="➡️ скопіюте отриманий Api ключ" />
+						<ListItemText
+							primary={
+								<>
+									➡️ скопіюте отриманий <span style={{ color: 'purple' }}>Api ключ</span>
+								</>
+							}
+						/>
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="➡️ вставте ключ в форму вище і натисніть [Підключити]" />
+						<ListItemText
+							primary={
+								<>
+									➡️ вставте ключ в форму вище і натисніть
+									<span style={btnStyle}>Підключити</span>
+								</>
+							}
+						/>
 					</ListItem>
 				</List>
 			</Box>
