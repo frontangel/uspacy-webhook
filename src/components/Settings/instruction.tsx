@@ -83,12 +83,18 @@ function IntegrationInstructions() {
 			</Box>
 
 			<Box sx={{ marginTop: 4 }}>
-				<Typography variant="body1" component="div">
-					Якщо у вас виникнуть питання - пишіть нам в чат тех.підтримки у вашому акаунті{' '}
+				<Typography component="div">
+					Якщо у вас виникнуть питання: - пишіть нам в 💬 тех.підтримки у вашому акаунті{' '}
 					<Link href="https://my.leadbox.com.ua" target="_blank">
 						my.leadbox.com.ua
 					</Link>{' '}
-					або на пошту <Link href="mailto:office@leadbox.com.ua">office@leadbox.com.ua</Link> або дзвоніть +380933164008.
+					або:
+				</Typography>
+				<Typography component="div">
+					✉️ <Link href="mailto:office@leadbox.com.ua">office@leadbox.com.ua</Link>
+				</Typography>
+				<Typography component="div">
+					📱 <Link href="tel:+380933164008">+38 (093) 316-40-08</Link>
 				</Typography>
 			</Box>
 		</Box>
