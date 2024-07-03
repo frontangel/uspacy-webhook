@@ -22,6 +22,7 @@ function IntegrationInstructions() {
 		letterSpacing: '1px',
 		fontSize: '14px',
 	};
+	const linkStyles = { color: 'dodgerblue' };
 	return (
 		<Box>
 			<YouTube videoId={videoId} style={playerStyles} />
@@ -31,11 +32,11 @@ function IntegrationInstructions() {
 				</Typography>
 				<Typography gutterBottom component="div">
 					Зареєструйте акаунт в сервісі{' '}
-					<Link href="https://my.leadbox.com.ua" target="_blank">
+					<Link href="https://my.leadbox.com.ua" sx={linkStyles} target="_blank">
 						my.leadbox.com.ua
 					</Link>
 					, якщо вже маєте його, то авторизуйтесь в ньому та перейдіть на сторінку{' '}
-					<Link href="https://my.leadbox.com.ua" target="_blank">
+					<Link href="https://my.leadbox.com.ua" sx={linkStyles} target="_blank">
 						Інтеграції
 					</Link>
 					.
@@ -126,7 +127,7 @@ function IntegrationInstructions() {
 							primary={
 								<>
 									➡️ Заповніть налаштування згідно з цією{' '}
-									<Link href={helpUrl} target="_blank">
+									<Link href={helpUrl} sx={linkStyles} target="_blank">
 										інструкцією
 									</Link>
 									.
@@ -140,16 +141,22 @@ function IntegrationInstructions() {
 			<Box sx={{ marginTop: 4 }}>
 				<Typography component="div">
 					Якщо у вас виникнуть питання: - пишіть нам в 💬 тех.підтримку на{' '}
-					<Link href="https://my.leadbox.com.ua" target="_blank">
+					<Link href="https://my.leadbox.com.ua" sx={linkStyles} target="_blank">
 						my.leadbox.com.ua
 					</Link>{' '}
 					або:
 				</Typography>
 				<Typography component="div">
-					✉️ <Link href="mailto:office@leadbox.com.ua">office@leadbox.com.ua</Link>
+					✉️{' '}
+					<Link href="mailto:office@leadbox.com.ua" sx={linkStyles}>
+						office@leadbox.com.ua
+					</Link>
 				</Typography>
 				<Typography component="div">
-					📱 <Link href="tel:+380933164008">+38 (093) 316-40-08</Link>
+					📱{' '}
+					<Link href="tel:+380933164008" sx={linkStyles}>
+						+38 (093) 316-40-08
+					</Link>
 				</Typography>
 			</Box>
 		</Box>
