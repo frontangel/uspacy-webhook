@@ -79,7 +79,12 @@ const Settings: React.FC = () => {
 		setChange(true);
 	};
 
-	const colorBadge = settings?.isConnected
+	const colorBadge = loading
+		? {
+				backgroundColor: '#efefef',
+				color: '#a6a6a8',
+		  }
+		: settings?.isConnected
 		? {
 				backgroundColor: '#d2f7b6',
 				color: '#58ca00',
@@ -103,7 +108,7 @@ const Settings: React.FC = () => {
 							borderRadius: '1rem',
 						}}
 					>
-						{settings?.isConnected ? t('connected') : t('notConnected')}
+						{loading ? t('loading') : settings?.isConnected ? t('connected') : t('notConnected')}
 					</Typography>
 				</Box>
 

@@ -96,7 +96,7 @@ function IntegrationInstructions() {
 						<ListItemText
 							primary={
 								<>
-									➡️ зайдіть на сторінку інтеграції в <span style={{ color: 'rebeccapurple' }}>LeadBox</span>
+									➡️ зайдіть на сторінку інтеграцій в <span style={{ color: 'rebeccapurple' }}>LeadBox</span>
 								</>
 							}
 						/>
