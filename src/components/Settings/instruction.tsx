@@ -1,10 +1,19 @@
 import { Card, CardContent, Container, Link, List, ListItem, ListItemText, Typography } from '@mui/material';
 import React from 'react';
+import YouTube from 'react-youtube';
 
 function IntegrationInstructions() {
 	const helpUrl = 'https://leadbox.crunch.help/uk/intieghratsiyi-z-dzhierielami-otrimannia-zaiavok/pidkliuchiennia-web-hook';
+	const videoId = 'RjQomY4YRWs';
+	const playerStyles = {
+		maxWidth: '100%',
+		display: 'flex',
+		justifyContent: 'center',
+		marginBottom: '1rem',
+	};
 	return (
 		<Container maxWidth="md">
+			<YouTube videoId={videoId} style={playerStyles} />
 			<Card variant="outlined" sx={{ marginBottom: 4 }}>
 				<CardContent>
 					<Typography gutterBottom variant="h5" component="div">
