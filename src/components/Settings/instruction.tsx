@@ -42,7 +42,13 @@ function IntegrationInstructions() {
 				<Typography component="div">Оберіть інтеграцію з Uspacy (якщо створювали її раніше), або ж створіть нову. Для цього:</Typography>
 				<List>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="➡️ оберіть 'Додати інтеграцію'" />
+						<ListItemText
+							primary={
+								<>
+									➡️ оберіть <span style={{ color: 'rebeccapurple' }}>Додати інтеграцію</span>
+								</>
+							}
+						/>
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText
