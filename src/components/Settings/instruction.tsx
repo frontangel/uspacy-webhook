@@ -24,7 +24,7 @@ function IntegrationInstructions() {
 	return (
 		<Box>
 			<YouTube videoId={videoId} style={playerStyles} />
-			<Box sx={{ marginBottom: 4 }}>
+			<Box sx={{ marginBottom: 6 }}>
 				<Typography gutterBottom variant="h5" component="div">
 					КРОК 1 - підключення Uspacy до акаунту LeadBox
 				</Typography>
@@ -93,10 +93,23 @@ function IntegrationInstructions() {
 				</Typography>
 				<List>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="➡️ Зайдіть на сторінку інтеграції в LeadBox" />
+						<ListItemText
+							primary={
+								<>
+									➡️ зайдіть на сторінку інтеграції в <span style={{ color: 'purple' }}>LeadBox</span>
+								</>
+							}
+						/>
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
-						<ListItemText primary="➡️ Натисніть 'Додати інтеграцію' та оберіть з переліку Web сайт → Webhook" />
+						<ListItemText
+							primary={
+								<>
+									➡️ натисніть <span style={{ color: 'purple' }}>Додати інтеграцію</span> та оберіть з переліку{' '}
+									<span style={{ color: 'purple' }}>Web сайт → Webhook</span>
+								</>
+							}
+						/>
 					</ListItem>
 					<ListItem sx={{ paddingY: 0 }}>
 						<ListItemText primary="➡️ Дайте назву інтеграції" />
