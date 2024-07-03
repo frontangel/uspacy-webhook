@@ -9,7 +9,7 @@ function IntegrationInstructions() {
 		maxWidth: '100%',
 		display: 'flex',
 		justifyContent: 'center',
-		marginBottom: '1rem',
+		marginBottom: '2rem',
 	};
 	const btnStyle = {
 		color: 'rebeccapurple',
@@ -132,7 +132,7 @@ function IntegrationInstructions() {
 
 			<Box sx={{ marginTop: 4 }}>
 				<Typography component="div">
-					Якщо у вас виникнуть питання: - пишіть нам в 💬 тех.підтримки у вашому акаунті{' '}
+					Якщо у вас виникнуть питання: - пишіть нам в 💬 тех.підтримку на{' '}
 					<Link href="https://my.leadbox.com.ua" target="_blank">
 						my.leadbox.com.ua
 					</Link>{' '}
