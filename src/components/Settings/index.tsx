@@ -8,7 +8,21 @@ import Providers from '../../Providers';
 import Instruction from './instruction';
 import { IProps } from './types';
 
-const APP_URL = process.env.AUTH_LEADBOX_URL || 'https://auth.dev.leadbox.com.ua';
+function getAuthApiUrl() {
+	const currentUrl = window.location.href;
+	const url = new URL(currentUrl);
+	const domain = url.hostname;
+	switch (domain) {
+		case 'partners.staging.uspacy.tech': {
+			return 'https://auth.dev.leadbox.com.ua';
+		}
+		default: {
+			return 'https://auth.leadbox.com.ua';
+		}
+	}
+}
+
+const APP_URL = getAuthApiUrl();
 
 const Settings: React.FC = () => {
 	const [settings, setSettings] = useState<ISettings>({ installed: false, apiKey: '', isConnected: false });
