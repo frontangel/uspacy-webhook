@@ -8,10 +8,14 @@ import Providers from '../../Providers';
 import Instruction from './instruction';
 import { IProps } from './types';
 
-function getAuthApiUrl() {
+function getDomain() {
 	const currentUrl = window.location.href;
 	const url = new URL(currentUrl);
-	const domain = url.hostname;
+	return url.hostname;
+}
+
+function getAuthApiUrl() {
+	const domain = getDomain();
 	switch (domain) {
 		case 'partners.staging.uspacy.tech': {
 			return 'https://auth.dev.leadbox.com.ua';
@@ -71,8 +75,8 @@ const Settings: React.FC = () => {
 		(async () => {
 			setLoading(true);
 			const appToken = await getAppToken();
-			document.cookie = `usAppToken=${appToken}; domain=localhost; path=/`;
 			const response = await fetchInstance(`${APP_URL}/portals/settings`, appToken);
+			document.cookie = `usAppToken=${appToken}; domain=localhost; path=/`;
 			setSettings(response as ISettings);
 			setLoading(false);
 		})();
