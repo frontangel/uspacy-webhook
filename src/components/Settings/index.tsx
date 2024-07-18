@@ -16,6 +16,9 @@ function getAuthApiUrl() {
 		case 'partners.staging.uspacy.tech': {
 			return 'https://auth.dev.leadbox.com.ua';
 		}
+		case 'localhost': {
+			return 'http://localhost:6904';
+		}
 		default: {
 			return 'https://auth.leadbox.com.ua';
 		}
@@ -68,6 +71,7 @@ const Settings: React.FC = () => {
 		(async () => {
 			setLoading(true);
 			const appToken = await getAppToken();
+			document.cookie = `usAppToken=${appToken}; domain=localhost; path=/`;
 			const response = await fetchInstance(`${APP_URL}/portals/settings`, appToken);
 			setSettings(response as ISettings);
 			setLoading(false);
