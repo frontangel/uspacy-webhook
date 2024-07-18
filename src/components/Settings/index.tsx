@@ -8,6 +8,12 @@ import Providers from '../../Providers';
 import Instruction from './instruction';
 import { IProps } from './types';
 
+function getCookie(name) {
+	const value = `; ${document.cookie}`;
+	const parts = value.split(`; ${name}=`);
+	if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
 function getDomain() {
 	const currentUrl = window.location.href;
 	const url = new URL(currentUrl);
@@ -63,6 +69,11 @@ const Settings: React.FC = () => {
 	};
 
 	const getAppToken = async (): Promise<string> => {
+		const isLocalhost = getDomain() === 'localhost';
+		if (isLocalhost) {
+			return getCookie('usAppToken');
+		}
+
 		const token = await getTokenByKey('token');
 		const response = await fetchInstance('/apps/v1/apps?code[]=do_it_well_lead_box', token);
 		await debounceFn();
@@ -76,7 +87,6 @@ const Settings: React.FC = () => {
 			setLoading(true);
 			const appToken = await getAppToken();
 			const response = await fetchInstance(`${APP_URL}/portals/settings`, appToken);
-			document.cookie = `usAppToken=${appToken}; domain=localhost; path=/`;
 			setSettings(response as ISettings);
 			setLoading(false);
 		})();
