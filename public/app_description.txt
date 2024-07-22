@@ -1,8 +1,8 @@
 <div class="app-description">
 	<div id="slider">
-    <div class="slides"><img src="https://res.cloudinary.com/duabfiyti/image/upload/1_ukr_t3lsnz.jpg" width="100%" /></div>
-    <div class="slides"><img src="https://res.cloudinary.com/duabfiyti/image/upload/2_ukr_qcx9zc.jpg" width="100%" /></div>
-    <div class="slides"><img src="https://res.cloudinary.com/duabfiyti/image/upload/3_ukr_wh_ldmwfg.jpg" width="100%" /></div>
+		<div class="slides"><img src="https://res.cloudinary.com/duabfiyti/image/upload/1_ukr_t3lsnz.jpg" width="100%" /></div>
+		<div class="slides"><img src="https://res.cloudinary.com/duabfiyti/image/upload/2_ukr_qcx9zc.jpg" width="100%" /></div>
+		<div class="slides"><img src="https://res.cloudinary.com/duabfiyti/image/upload/3_ukr_wh_ldmwfg.jpg" width="100%" /></div>
 	</div>
 
 	<p class="paragraph">Цей застосунок дозволить вам без написання коду налаштувати Smart-передачу лідів з будь якого вашого джерела лідогенерації в Uspacy відправивши дані на Webhook. </p>
@@ -20,7 +20,6 @@
 	</ul>
 
 	<p class="paragraph">Оновлювати дані у вже наявних угодах / контактах додатковою інформацією (наприклад про джерело трафіку) з новий замовлень клієнта</p>
-	<br>
 
 	<p class="paragraph"><b>Окрім даних самого ліда та його запиту ви можете отримати на Webhook:</b>
 	<ul>
@@ -29,14 +28,9 @@
 		<li class="list-item">обрати назву створюваного ліда / угоди</li>
 		<li class="list-item">в подальшому відправити дані з Uspacy в  Google Analytics</li>
 	</ul>
-	<br>
 
 	<p class="paragraph"><b>Серед інших вбудованих інтеграцій сервісу LeadBox:</b></p>
-	<p class="paragraph">Google Analytucs / Meta лід-форми / TypeForms / Коллтрекінг Binotel / Weblium / Хорошоп / Tilda / WordPress / Sendpulse Чат-боти та багато інших.</p>
-	<br>
-
-	<p class="paragraph">Встановлюй будь які з них оплачуючи тільки обраний тарифний. Детальніше на сайті LeadBox (посилання на сайт). </p>
-	<br>
-
+	<p class="paragraph">Google Analytics / Meta лід-форми / TypeForms / Коллтрекінг Binotel / Weblium / Хорошоп / Tilda / WordPress / Sendpulse Чат-боти та багато інших.</p>
+	<p class="paragraph">Встановлюй будь які з них оплачуючи тільки обраний тарифний. Детальніше на сайті <a href="https://leadbox.com.ua" target="_blank">LeadBox</a> </p>
 	<p class="paragraph">Якщо вам не вистачає функціоналу в даній інтеграції чи є запитання - пишіть <a href="mailto:office@leadbox.com.ua" target="_blank">office@leadbox.com.ua</a> або дзвоніть +380933164008 (даний номер також є в телеграм).</p>
 </div>

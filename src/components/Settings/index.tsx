@@ -22,10 +22,11 @@ function getDomain() {
 
 function getAuthApiUrl() {
 	const domain = getDomain();
+	const isStaging = domain.endsWith('staging.uspacy.tech');
+	if (isStaging) {
+		return 'https://auth.dev.leadbox.com.ua';
+	}
 	switch (domain) {
-		case 'partners.staging.uspacy.tech': {
-			return 'https://auth.dev.leadbox.com.ua';
-		}
 		case 'localhost': {
 			return 'http://localhost:6904';
 		}
