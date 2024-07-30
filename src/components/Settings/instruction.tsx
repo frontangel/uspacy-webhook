@@ -6,10 +6,23 @@ function IntegrationInstructions() {
 	const helpUrl = 'https://leadbox.crunch.help/uk/intieghratsiyi-z-dzhierielami-otrimannia-zaiavok/pidkliuchiennia-web-hook';
 	const videoId = 'BF1E3O2IfUI';
 	const playerStyles = {
-		maxWidth: '100%',
+		maxWidth: '800px',
 		display: 'flex',
 		justifyContent: 'center',
 		marginBottom: '2rem',
+		aspectRatio: '16/9',
+	};
+	const opts = {
+		height: '100%',
+		width: '100%',
+		playerVars: {
+			autoplay: 0,
+			controls: 0, // прибирає всі елементи управління
+			modestbranding: 1, // прибирає логотип YouTube
+			rel: 0, // не показувати схожі відео після завершення
+			showinfo: 0, // прибирає інформацію про відео
+			iv_load_policy: 3, // приховати анотації
+		},
 	};
 	const boldColor = { fontWeight: 500, color: '#9c27b0' };
 	const btnStyle = {
@@ -25,7 +38,7 @@ function IntegrationInstructions() {
 	const linkStyles = { color: '#03a9f4' };
 	return (
 		<Box>
-			<YouTube videoId={videoId} style={playerStyles} />
+			<YouTube videoId={videoId} style={playerStyles} opts={opts} />
 			<Box sx={{ marginBottom: 6 }}>
 				<Typography gutterBottom variant="h5" component="div">
 					КРОК 1 - підключення Uspacy до акаунту LeadBox
