@@ -6,7 +6,7 @@ function IntegrationInstructions() {
 	const helpUrl = 'https://leadbox.crunch.help/uk/intieghratsiyi-z-dzhierielami-otrimannia-zaiavok/pidkliuchiennia-web-hook';
 	const videoId = 'BF1E3O2IfUI';
 	const playerStyles = {
-		maxWidth: '800px',
+		maxWidth: '1000px',
 		display: 'flex',
 		justifyContent: 'center',
 		marginBottom: '2rem',
