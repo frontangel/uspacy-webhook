@@ -17,10 +17,9 @@ function IntegrationInstructions() {
 		width: '100%',
 		playerVars: {
 			autoplay: 0,
-			controls: 0, // прибирає всі елементи управління
-			modestbranding: 1, // прибирає логотип YouTube
-			rel: 0, // не показувати схожі відео після завершення
-			showinfo: 0, // прибирає інформацію про відео
+			controls: 0,
+			rel: 0,
+			showinfo: 0,
 			iv_load_policy: 3, // приховати анотації
 		},
 	};
