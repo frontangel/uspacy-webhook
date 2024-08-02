@@ -154,15 +154,14 @@ const Settings: React.FC = () => {
 						<Box
 							sx={{
 								backgroundColor: '',
-								color: '#f00',
 								textAlign: 'center',
 								marginBottom: '1rem',
 								padding: '1rem',
 								borderRadius: '0.25rem',
 							}}
 						>
-							<Typography sx={{ fontWeight: 'bold' }}>{t('WARNING')}</Typography>
-							<Typography>{t('WIDGET_INSTALL_ERROR')}</Typography>
+							<Typography sx={{ fontWeight: 'bold', color: '#f00' }}>{t('WARNING')}</Typography>
+							<Typography sx={{ color: '#f00' }}>{t('WIDGET_INSTALL_ERROR')}</Typography>
 						</Box>
 					</>
 				)}
